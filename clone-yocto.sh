@@ -22,8 +22,8 @@ fi
 mkdir -p "${directory}/sources" && cd "${directory}"
 
 # clone poky and other layers
-git clone -b dunfell git://git.yoctoproject.org/poky.git sources/poky
-git clone -b dunfell https://github.com/agherzan/meta-raspberrypi.git sources/meta-raspberrypi
-git clone -b dunfell https://github.com/openembedded/meta-openembedded.git sources/meta-openembedded
+git clone -b gatesgarth git://git.yoctoproject.org/poky.git sources/poky
+git clone -b gatesgarth https://github.com/agherzan/meta-raspberrypi.git sources/meta-raspberrypi
+git clone -b gatesgarth https://github.com/openembedded/meta-openembedded.git sources/meta-openembedded
 
 echo "Done, type \"cd ${directory} && . ./sources/poky/oe-init-build-env\" to create the build environment"
