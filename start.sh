@@ -80,19 +80,20 @@ if [ "${run_additional_instance}" = true ]; then
     -it \
     --user yocto \
     -w /opt/yocto/workspace \
-    hubshuffle-yocto \
+    gatesgarth-yocto \
     /bin/bash
 else
     docker container run \
     -it \
     --rm \
     -v "${PWD}":/opt/yocto \
-    --name hubshuffle-yocto \
+    --hostname gatesgarth-yocto \
+    --name gatesgarth-yocto \
     ${arg_net_forward} \
     ${arg_x11_forward} \
     ${arg_privileged} \
     --volume "${PWD}/home":/home/yocto \
-    hubshuffle/yocto:1.2 \
+    yocto-gatesgarth:latest \
     sudo bash -c "groupadd -g 7777 yocto && useradd --password ${empty_password_hash} --shell /bin/bash -u ${UID} -g 7777 \
     yocto && usermod -aG sudo yocto && usermod -aG users yocto && cd /opt/yocto && su yocto"
 fi
